@@ -31,16 +31,35 @@ $( ".tabs" ).tabs({
 });
 
 
-/*
-$( ".btn" ).draggable({revert: true});
+
+$( ".btn-toolbar.draggable .btn" ).draggable({revert: true,});
 $( "td" ).droppable({
     drop: function( event, ui ) {
-    	$("colgroup").eq($(this).index()).removeClass("hover");
+    	$(this).parents('table').find("colgroup").eq($(this).index()).removeClass("hover");
+
+    	$('td').first().parent().fadeTo('slow', 0.3, function() {
+      // Animation complete.
+    	});
+
+    	var $This = $(this);
+    	var col = $This.parent().children().index($(this));
+    	var title = $This.closest("table").find("th").eq(col).text();
+    	$('.breadcrumb').append('<li>'+title+'<span class="divider">/</span></li>');
+
+
+
     },
     over: function( event, ui ) {
-    	$("colgroup").eq($(this).index()).addClass("hover");
+    	
+		var $This = $(this);
+    	var col = $This.parent().children().index($(this));
+    	var title = $This.closest("table").find("th").eq(col).text();
+    	$(ui.draggable[0]).text(title);
+    	$(this).parents('table').find("colgroup").eq($(this).index()).addClass("hover");
+
     },
     out: function( event, ui ) {
-    	$("colgroup").eq($(this).index()).removeClass("hover");
+    	$(this).parents('table').find("colgroup").eq($(this).index()).removeClass("hover");
+
     }
-});*/
+});
