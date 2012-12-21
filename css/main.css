@@ -1,5 +1,8 @@
 
+body{
+  background: url(imgs/bg.jpg) repeat;
 
+}
 
 .masthead{
 
@@ -21,7 +24,7 @@
 }
 
 .sidebar{
-  background-color: red;
+  background: url(imgs/bg-dark.png) repeat;
   width: 20%;
   float:right;
   height: 100%
@@ -32,19 +35,21 @@
 .content{
   float:left;
   width: 80%;
-  background-color: blue;
   display: block;
 }
 
 .table{
   height: 300px;
   display: block;
-  background-color: teal;
+  background-color: white;
+  margin-bottom: 5px;
+  padding: 20px 0px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
 
 }
 .components{
   height: 400px;
   display: block;
-  background-color: purple;
+  background: url(imgs/bg-dark.png) repeat;
 
 }
