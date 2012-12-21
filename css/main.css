@@ -1,44 +1,50 @@
 
 
-      /* Custom container */
-      .container{
-        margin: 0 auto;
-        max-width: 960px;
-      }
-      .container > hr {
-        margin: 15px 0;
-      }
 
-      /* Main marketing message and sign up button */
-      .jumbotron {
-        margin: 20px 0;
-        text-align: center;
-      }
-      .jumbotron h1 {
-        font-size: 36px;
-        line-height: 1;
-      }
-      .jumbotron .btn {
-        font-size: 21px;
-        padding: 14px 24px;
-      }
+.masthead{
 
-      /* Supporting marketing content */
-      .facets {
-        margin: 30px 0;
-      }
-      .facets p + h4 {
-        margin-top: 28px;
-      }
+}
 
-      .navigation {
-        text-align:right;
-      }
+.container{
 
-      .hover { background-color: #eee; }
+  width: 960px;
+  margin: auto;
+}
 
-      .draggable .btn{
+.go {
+  text-align:right;
+}
 
-        cursor: move;
+.tabulator{
 
-      }
+  /* display: none; */
+}
+
+.sidebar{
+  background-color: red;
+  width: 20%;
+  float:right;
+  height: 100%
+  display:block;
+
+}
+
+.content{
+  float:left;
+  width: 80%;
+  background-color: blue;
+  display: block;
+}
+
+.table{
+  height: 300px;
+  display: block;
+  background-color: teal;
+
+}
+.components{
+  height: 400px;
+  display: block;
+  background-color: purple;
+
+}
