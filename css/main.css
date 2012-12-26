@@ -27,10 +27,10 @@ body{
   display: block;
   background-color: white;
   margin-bottom: 5px;
-  padding: 20px 0px;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
   width:80%;
   float:left;
+  overflow-y: scroll;
 }
 
 #breadcrumbs{
@@ -43,7 +43,8 @@ body{
 
 }
 .breadcrumb{
-  background: red;
+  background: url(imgs/dashedbox.png) no-repeat;
+  list-style: none;
 }
 .breadcrumb a{
   display: block;
@@ -104,3 +105,41 @@ margin: 50px;
 
 
 
+/* tables */
+table.CSVTable {
+  font-family:arial;
+  background-color: #CDCDCD;
+  font-size: 8pt;
+  width: 100%;
+  text-align: left;
+}
+table.CSVTable thead tr th, table.CSVTable tfoot tr th {
+  background-color: #e6EEEE;
+  border: 1px solid #FFF;
+  font-size: 8pt;
+  padding: 4px;
+}
+table.CSVTable thead tr .header {
+  background-image: url(imgs/bg.gif);
+  background-repeat: no-repeat;
+  background-position: center right;
+  cursor: pointer;
+}
+table.CSVTable tbody td {
+  color: #3D3D3D;
+  padding: 4px;
+  background-color: #FFF;
+  vertical-align: top;
+}
+table.CSVTable tbody tr.odd td {
+  background-color:#F0F0F6;
+}
+table.CSVTable thead tr .headerSortUp {
+  background-image: url(imgs/asc.gif);
+}
+table.CSVTable thead tr .headerSortDown {
+  background-image: url(imgs/desc.gif);
+}
+table.CSVTable thead tr .headerSortDown, table.CSVTable thead tr .headerSortUp {
+background-color: #8dbdd8;
+}

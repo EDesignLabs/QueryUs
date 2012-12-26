@@ -3,10 +3,10 @@ $(function(){
     var $tabs = $('#tabs');
     var tabCounter = 0;
 
-    var categories = ["test1" , "test2", "cats", "dogs"];
+    var categories = [{name:"test1",type:"numeric"} , {name:"testd",type:"numeric"} , {name:"facatt",type:"numeric"} , {name:"rum",type:"string"} ];
 
     for (var i = 0; i < categories.length; i++) 
-         $('#breadcrumbs').append( '<li class = "breadcrumb"><a>'+categories[i]+'</a></li>' );
+         $('#breadcrumbs').append( '<li class = "breadcrumb"><a>'+categories[i].name+'</a></li>' );
 
 
     $tabs.tabs();
@@ -18,6 +18,10 @@ $(function(){
         stop: function() {
             $tabs.tabs( "refresh" );
         }
+    });
+
+    $('#CSVTable').CSVToTable('test.csv').bind("loadComplete",function() { 
+        $('#CSVTable').find('TABLE').tablesorter();
     });
 
 
