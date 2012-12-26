@@ -28,14 +28,14 @@ body{
   background-color: white;
   margin-bottom: 5px;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
-  width:80%;
-  float:left;
+  width:85%;
+  float:right;
   overflow-y: scroll;
 }
 
 #breadcrumbs{
  /* background: url(imgs/bg-dark.png) repeat;*/
-  width: 20%;
+  width: 15%;
   float:right;
   height: 100%;
   display:block;
@@ -45,17 +45,19 @@ body{
 .breadcrumb{
   background: url(imgs/dashedbox.png) no-repeat;
   list-style: none;
+  overflow: hidden;
+  margin-top: 8px;
 }
-.breadcrumb a{
+.breadcrumb a, #tabs li{
   display: block;
   z-index: 999;
   background: url(imgs/breadcrumb.png) repeat;
   width: 140px;
   height: 38px;
-  margin-top: 8px;
+  
   line-height: 40px;
   position: relative;
-  left: -5px;
+
   padding-left: 15px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
@@ -73,32 +75,22 @@ body{
   clear: both;
   display: inline-block;
 }
-#tabs p {
-color: black;
-border: 2px dashed black;
-padding: 35px;
-margin: 50px;
+#tabs ul{
+  overflow: hidden;
 
 }
 
-
-
-
-
-
-
-
 .ui-tabs-vertical .ui-tabs-nav { 
-  float: right; 
-  width: 20%; 
+  float: left; 
+  width: 15%; 
   padding: 0;
 }
 .ui-tabs-vertical .ui-tabs-nav li { clear: left; width: 100%; border-bottom-width: 1px !important; border-right-width: 0 !important; margin: 0 -1px .2em 0; }
 .ui-tabs-vertical .ui-tabs-nav li a { display:block; }
 .ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active { padding-bottom: 0; padding-right: .1em; border-right-width: 1px; border-right-width: 1px; }
 .ui-tabs-vertical .ui-tabs-panel { 
-  float: left; 
-  width: 80%;  
+  float: right; 
+  width: 85%;  
   background: url(imgs/bg-dark.png) repeat;
 }
 
