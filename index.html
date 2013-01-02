@@ -10,38 +10,94 @@
 
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/animate.min.css">
-  <link href='http://fonts.googleapis.com/css?family=Lato:400,700' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Fredoka+One' rel='stylesheet' type='text/css'>
+
+  <!-- mini templates -->
+  <script type="text/html" id="text">
+    <div class = "text tab" id="tab-<%=tabCounter%>">
+      
+      <div class = "panel">
+        <ul>
+          <li> average: 7 </li>
+          <li> median: 6 </li>
+          <li> smallest number: 3 </li>
+          <li> largest number: 14 </li>
+        </ul>
+      </div>
+      <div class = "selector">
+        <h2>select all the rows that</h2> 
+        have a <%=title%> that 
+        <select>
+          <option data-start = "" data-end = "" >are like</option>
+          <option data-start = "=" data-end = "">are exactly</option>
+          <option data-start = "!" data-end = "">does not contain</option>
+          <option data-start = "<>" data-end = "">are not</option>
+        </select>
+        <input type="text" name="filter">
+      </div>
+    </div>
+  </script>
+
+  <script type="text/html" id="numeric">
+    <div class = "text tab" id="tab-<%=tabCounter%>">
+      
+      <div class = "panel">
+        <ul>
+          <li> test </li>
+          <li> test </li>
+          <li> test </li>
+          <li> test </li>
+        </ul>
+      </div>
+      <div class = "selector">
+        select all the rows that have a <%=title%> that are 
+        <select>
+          <option data-start = ">" data-end = "" >greater than</option>
+          <option data-start = "<" data-end = "">less than</option>
+          <option data-start = "<>" data-end = "">not equal to</option>
+          <option data-start = "=" data-end = "">equal to</option>
+        </select>
+        <input type="text" name="filter">
+      </div>
+    </div>
+  </script>
 
 </head>
 <body>
   <div class="container">
 
-    <div class="masthead">
-            <p class="lead">The MTA is giving away $10,000 to whomever can identify the best subway line in N.Y.C.</p>
-      
-    </div>
-
-
-    <p class = "go">
-      <button class="btn btn-large btn-primary" type="button"> Go! </button>
-    </p>
-
-    <div id = "tabulator">
-      <div id = "table" >
-        <div id="CSVTable"></div>
+    <div class = "screen">
+      <div class="masthead">
+        <p class="lead">The MTA is giving away $10,000 to whomever can identify the best subway line in N.Y.C. What do you think makes the best subway line?</p>
       </div>
-      <ul id="breadcrumbs">
 
-      </ul>
+      <p class = "go">
+        <button class="btn btn-large btn-primary" type="button">Lets Go!</button>
+      </p>
     </div>
 
+    <div class = "screen">
 
-    <div id="tabs" class = "ui-tabs-vertical ui-helper-clearfix">
-      <ul>
+      <div class="masthead">
+        <p class = "lead" style = "display:none;" ><span> What do you think makes the best subway line?</span><button class="btn btn-large btn-primary" type="button">PUBLISH</button> </p>
+        <p class = "explain"> <img src="imgs/arrow.png" style=" position: relative; top: 40px; margin-left: 40px; margin-right: 10px;"> click any of these bookmark thingies to get started  </p>
+      </div>
 
-      </ul>
+      <div id = "tabulator">
+        <div id = "table" >
+          <div id="CSVTable"></div>
+        </div>
+        <ul id="breadcrumbs">
 
-    </div>
+        </ul>
+      </div>
+
+
+      <div id="tabs" class = "ui-tabs-vertical ui-helper-clearfix">
+        <ul></ul>
+      </div>
+
+      <div id = "status"></div>
 
 
   </div> <!-- /container -->
@@ -49,7 +105,8 @@
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
   <script src="js/jquery.csvToTable.js"></script>
-  <script src="js/jquery.tablesorter.min.js"></script>
+  <script src="js/jquery.tablesorter.js"></script>
+  <script src="js/jquery.tablesorter.widgets.js"></script>
   <script src="js/main.js"></script>
 
 </body>

@@ -1,11 +1,28 @@
 
 body{
   background: url(imgs/bg.jpg) repeat;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 
 }
 
 .masthead{
+  font-family: 'Fredoka One', cursive;
+  font-size: 24px;
+  text-align:left;
+}
 
+.masthead span{
+width: 80%;
+display: inline-table;
+  
+}
+
+.masthead button{
+  
+}
+
+.masthead{
+  clear:both;
 }
 
 .container{
@@ -14,9 +31,68 @@ body{
   margin: auto;
 }
 
-.go {
-  text-align:right;
+.screen{
+  display:none;
 }
+
+/* button 
+---------------------------------------------- */
+.btn {
+    font-family: 'Fredoka One', cursive;
+  font-size: 22px;
+  display: inline-block;
+  zoom: 1; /* zoom and *display = ie7 hack for display:inline-block */
+  *display: inline;
+  vertical-align: baseline;
+  margin: 0 2px;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+
+  padding: .5em 2em .55em;
+  text-shadow: 0 1px 1px rgba(0,0,0,.3);
+  -webkit-border-radius: .5em; 
+  -moz-border-radius: .5em;
+  border-radius: .5em;
+  -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+  -moz-box-shadow: 0 1px 2px rgba(0,0,0,.2);
+  box-shadow: 0 1px 2px rgba(0,0,0,.2);
+}
+.btn:hover {
+  text-decoration: none;
+}
+.btn:active {
+  position: relative;
+  top: 1px;
+}
+
+/* blue */
+.btn {
+  color: #d9eef7;
+  border: solid 1px #0076a3;
+  background: #0095cd;
+  background: -webkit-gradient(linear, left top, left bottom, from(#00adee), to(#0078a5));
+  background: -moz-linear-gradient(top,  #00adee,  #0078a5);
+  filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#00adee', endColorstr='#0078a5');
+}
+.btn:hover {
+  background: #007ead;
+  background: -webkit-gradient(linear, left top, left bottom, from(#0095cc), to(#00678e));
+  background: -moz-linear-gradient(top,  #0095cc,  #00678e);
+  filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#0095cc', endColorstr='#00678e');
+}
+.btn:active {
+  color: #80bed6;
+  background: -webkit-gradient(linear, left top, left bottom, from(#0078a5), to(#00adee));
+  background: -moz-linear-gradient(top,  #0078a5,  #00adee);
+  filter:  progid:DXImageTransform.Microsoft.gradient(startColorstr='#0078a5', endColorstr='#00adee');
+}
+.go {
+  text-align:center;
+}
+
+
 
 #tabulator{
   overflow: hidden;
@@ -26,7 +102,6 @@ body{
   height: 300px;
   display: block;
   background-color: white;
-  margin-bottom: 5px;
   box-shadow: 0 0 6px rgba(0, 0, 0, 0.1);
   width:85%;
   float:right;
@@ -47,6 +122,7 @@ body{
   list-style: none;
   overflow: hidden;
   margin-top: 8px;
+    text-transform: uppercase;
 }
 .breadcrumb a, #tabs li{
   display: block;
@@ -54,15 +130,12 @@ body{
   background: url(imgs/breadcrumb.png) repeat;
   width: 140px;
   height: 38px;
-  
   line-height: 40px;
-  position: relative;
-
-  padding-left: 15px;
+  padding-left: 34px;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   font-weight: bold;
-  color: white;
+  color: black;
 }
 
 
@@ -80,18 +153,108 @@ body{
 
 }
 
+
+#tabs li{
+
+  background: url(imgs/tabs.png) no-repeat;
+}
+
+#tabs ul li a{
+  width: 90px;
+  float: left;
+  color: white;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+#tabs ul  .ui-state-active{
+  background: url(imgs/tabs-active.png) no-repeat;
+}
+
+#tabs h2{
+
+padding: 9px 20px;
+margin: 0;
+}
+
+#tabs .panel{
+  float: right;
+  height: 100%;
+  display: block;
+   width: 30%;
+}
+
+#tabs .selector{
+  float: left;
+  width: 70%;
+  color:white;
+  text-align: center;
+}
+
+#tabs .statusbar{
+  clear: both;
+  overflow: hidden;
+  padding: 8px 15px 6px;
+  width: 100%;
+  font: 11px/13px Helvetica, Arial, sans-serif;
+  background: url(imgs/bg-dark.png) repeat;
+}
+
+#tabs select{
+  border: 1px solid black;
+  font-size: 14px;
+  color: white;
+  background: #444;
+  padding: 5px;
+
+}
+
+#tabs .tab  h2{
+  text-align: left;
+}
+
+#tabs .panel li{
+  color:white;
+  background: rgba(0,0,0,0.5);
+  margin: 0;
+  padding: 0;
+}
+
 .ui-tabs-vertical .ui-tabs-nav { 
   float: left; 
   width: 15%; 
   padding: 0;
 }
+
+.ui-icon { 
+  float: left;
+  margin: 0.4em 0.2em 0 0;
+  background-image: url(imgs/ui-icons_454545_256x240.png);
+  display: block;
+  text-indent: -99999px;
+  overflow: hidden;
+  background-repeat: no-repeat;
+  width: 16px;
+  height: 16px;
+
+  background-position: -80px -128px;
+
+}
+
 .ui-tabs-vertical .ui-tabs-nav li { clear: left; width: 100%; border-bottom-width: 1px !important; border-right-width: 0 !important; margin: 0 -1px .2em 0; }
 .ui-tabs-vertical .ui-tabs-nav li a { display:block; }
 .ui-tabs-vertical .ui-tabs-nav li.ui-tabs-active { padding-bottom: 0; padding-right: .1em; border-right-width: 1px; border-right-width: 1px; }
 .ui-tabs-vertical .ui-tabs-panel { 
   float: right; 
   width: 85%;  
-  background: url(imgs/bg-dark.png) repeat;
+  background: url(imgs/debut_dark.png) repeat;
+  min-height: 200px;
+    -moz-box-shadow:    inset  0  12px 12px -12px #000, 
+                        inset  0 -12px 12px -12px #000;
+    -webkit-box-shadow: inset  0  12px 12px -12px #000, 
+                        inset  0 -12px 12px -12px #000;
+     box-shadow:        inset  0  12px 12px -12px #000, 
+                        inset  0 -12px 12px -12px #000;
 }
 
 
@@ -106,10 +269,13 @@ table.CSVTable {
   text-align: left;
 }
 table.CSVTable thead tr th, table.CSVTable tfoot tr th {
-  background-color: #e6EEEE;
+  background-color: #007CCD;
   border: 1px solid #FFF;
   font-size: 8pt;
   padding: 4px;
+  color: white;
+    text-transform: uppercase;
+
 }
 table.CSVTable thead tr .header {
   background-image: url(imgs/bg.gif);
@@ -133,5 +299,19 @@ table.CSVTable thead tr .headerSortDown {
   background-image: url(imgs/desc.gif);
 }
 table.CSVTable thead tr .headerSortDown, table.CSVTable thead tr .headerSortUp {
-background-color: #8dbdd8;
+background-color: #0059AA;
+}
+
+#status{
+  width: 85%;
+  float: right;
+  color: black;
+  font-size: 12px;
+  padding: 10px 0;
+  margin: 0;
+  text-align: center;
+}
+
+.tablesorter-filter-row{
+  display:none;
 }
