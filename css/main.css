@@ -174,7 +174,7 @@ display: inline-table;
 
 #tabs h2{
 
-padding: 9px 20px;
+padding: 2px 0;
 margin: 0;
 }
 
@@ -187,9 +187,22 @@ margin: 0;
 
 #tabs .selector{
   float: left;
-  width: 70%;
-  color:white;
+  width: 59%;
+  color: white;
   text-align: center;
+  padding: 20px;
+  line-height: 21px;
+  text-align: left;
+}
+
+.tab p{
+  margin: 0;
+  line-height: 35px;
+  font-size: 22px;
+}
+
+.tab p strong{
+  font-size: 24px;
 }
 
 #tabs .statusbar{
@@ -202,16 +215,35 @@ margin: 0;
 }
 
 #tabs select{
-  border: 1px solid black;
-  font-size: 14px;
-  color: white;
-  background: #444;
-  padding: 5px;
+  width: 220px;
+  height: 40px;
+  overflow: hidden;
+  background: #DDD;
+  border: 1px solid #CCC;
 
 }
 
-#tabs .tab  h2{
+#tabs input{
+  background: rgba(255, 255, 255, 0.85);
+  padding: 7px 8px;
+  margin: 0;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+  border: 1px solid #C0C8D2;
+  display: inline;
+  width: 50px;
+  font-size: 13px;
+  height: 25px;
+  background-color: white;
+  vertical-align: top;
+}
+
+#tabs .tab  h4{
   text-align: left;
+  margin: 0;
+  line-height: 34px;
+  margin-bottom: 20px;
 }
 
 #tabs .panel li{
@@ -258,6 +290,19 @@ margin: 0;
                         inset  0 -12px 12px -12px #000;
 }
 
+#status{
+  width: 85%;
+  float: right;
+  color: black;
+  font-size: 12px;
+  padding: 10px 0;
+  margin: 0;
+  text-align: center;
+}
+
+.tablesorter-filter-row{
+  display:none;
+}
 
 
 
@@ -278,7 +323,7 @@ table.CSVTable thead tr th, table.CSVTable tfoot tr th {
     text-transform: uppercase;
 
 }
-table.CSVTable thead tr .header {
+table.CSVTable thead tr .tablesorter-header {
   background-image: url(imgs/bg.gif);
   background-repeat: no-repeat;
   background-position: center right;
@@ -293,26 +338,12 @@ table.CSVTable tbody td {
 table.CSVTable tbody tr.odd td {
   background-color:#F0F0F6;
 }
-table.CSVTable thead tr .headerSortUp {
+table.CSVTable thead tr .tablesorter-headerAsc {
   background-image: url(imgs/asc.gif);
 }
-table.CSVTable thead tr .headerSortDown {
+table.CSVTable thead tr .tablesorter-headerDesc {
   background-image: url(imgs/desc.gif);
 }
 table.CSVTable thead tr .headerSortDown, table.CSVTable thead tr .headerSortUp {
 background-color: #0059AA;
-}
-
-#status{
-  width: 85%;
-  float: right;
-  color: black;
-  font-size: 12px;
-  padding: 10px 0;
-  margin: 0;
-  text-align: center;
-}
-
-.tablesorter-filter-row{
-  display:none;
 }

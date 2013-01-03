@@ -25,8 +25,8 @@
         </ul>
       </div>
       <div class = "selector">
-        <h2>select all the rows that</h2> 
-        have a <%=title%> that 
+        <h4>select all the rows that</h4> 
+        <p>have a <strong><%=title%></strong> that:
         <select>
           <option data-start = "" data-end = "" >are like</option>
           <option data-start = "=" data-end = "">are exactly</option>
@@ -34,6 +34,7 @@
           <option data-start = "<>" data-end = "">are not</option>
         </select>
         <input type="text" name="filter">
+        </p>
       </div>
     </div>
   </script>
@@ -50,14 +51,16 @@
         </ul>
       </div>
       <div class = "selector">
-        select all the rows that have a <%=title%> that are 
-        <select>
-          <option data-start = ">" data-end = "" >greater than</option>
-          <option data-start = "<" data-end = "">less than</option>
-          <option data-start = "<>" data-end = "">not equal to</option>
-          <option data-start = "=" data-end = "">equal to</option>
-        </select>
-        <input type="text" name="filter">
+        <h4>select all the rows that have:</h4> 
+        <p>a <strong><%=title%></strong> that are 
+          <select>
+            <option data-start = ">" data-end = "" >greater than</option>
+            <option data-start = "<" data-end = "">less than</option>
+            <option data-start = "<>" data-end = "">not equal to</option>
+            <option data-start = "=" data-end = "">equal to</option>
+          </select>
+          <input type="text" name="filter">
+        </p>
       </div>
     </div>
   </script>

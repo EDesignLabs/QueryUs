@@ -58,7 +58,7 @@ $(function(){
             var dataType = $('#CSVTable table').data().tablesorter.parsers[$(this).parent().index()].type;
             
 
-            var $newTab = $(tmpl(dataType, {"tabCounter": tabCounter, "title": $(this).text()})).data('colIndex', $(this).parent().index());
+            var $newTab = $(tmpl(dataType, {"tabCounter": tabCounter, "title": $(this).text().toLowerCase() })).data('colIndex', $(this).parent().index());
 
             $newTab.find('input').bind('keyup mouseup change',function(){
               $('table').trigger('search', []); 
