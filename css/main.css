@@ -155,7 +155,7 @@ display: inline-table;
 
 
 #tabs li{
-
+  overflow: hidden;
   background: url(imgs/tabs.png) no-repeat;
 }
 
@@ -169,6 +169,7 @@ display: inline-table;
 
 #tabs ul  .ui-state-active{
   background: url(imgs/tabs-active.png) no-repeat;
+  overflow: hidden;
 }
 
 #tabs h2{

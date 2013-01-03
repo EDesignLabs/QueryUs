@@ -1,5 +1,9 @@
 $(function(){
 
+  var csvDataUrl = "php/ba-simple-proxy.php?url=" + getURLParameter('data') + "&mode=native";
+  $('.lead.main').text(getURLParameter('description') + getURLParameter('question') );
+  $('.lead.sub span').text(getURLParameter('question') );
+
   //GO SCREEN
   $('.screen').first().show();
   $('.screen').first().find(".lead").css("margin-top", $(window).height()/2 - 100+ "px");
@@ -29,7 +33,7 @@ $(function(){
 
 
 
-    $('#CSVTable').CSVToTable('test.csv').bind("loadComplete",function() { 
+    $('#CSVTable').CSVToTable(csvDataUrl).bind("loadComplete",function() { 
 
         //enable sort functionality 
         $('#CSVTable').find('TABLE')
@@ -164,3 +168,8 @@ $(function(){
     return data ? fn( data ) : fn;
   };
 })();
+
+//http://stackoverflow.com/questions/1403888/get-url-parameter-with-jquery
+function getURLParameter(name) {
+    return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
+}
