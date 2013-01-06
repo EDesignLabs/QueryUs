@@ -17,6 +17,8 @@ $(function(){
 
   //Table stuff
 
+    var colors = ["005538","005C95","35213D","AC1353","871E3D","F14108","D75C0F",       "005538","005C95","35213D","AC1353","871E3D","F14108","D75C0F", "005538","005C95","35213D","AC1353","871E3D","F14108","D75C0F", "005538","005C95","35213D","AC1353","871E3D","F14108","D75C0F", "005538","005C95","35213D","AC1353","871E3D","F14108","D75C0F"];
+
     var $tabs = $('#tabs');
     var tabCounter = 0;
 
@@ -44,7 +46,8 @@ $(function(){
 
         //add breacrumbs 
         $('#CSVTable thead tr th').each(function(index, ele){
-            $('#breadcrumbs').append( '<li class = "breadcrumb animated flipInY"><a>'+$(ele).text()+'</a></li>' );
+            $('#breadcrumbs').append( '<li class = "breadcrumb animated flipInY"><a style = "background-color:#'+colors[index]+'" >'+$(ele).text()+'</a></li>' );
+            $(this).css('background-color', '#'+colors[index]);
         });
 
         $( ".breadcrumb a" ).click(function() {
@@ -53,7 +56,7 @@ $(function(){
             $(".explain").hide();
             
             //tab creation
-            $tabs.find( ".ui-tabs-nav" ).append( "<li class = 'bounceIn animated' ><span class='ui-icon ui-icon-close'>Remove Tab</span><a href='#tab-"+tabCounter+"'>"+$(this).text()+"</a> </li>");
+            $tabs.find( ".ui-tabs-nav" ).append( "<li class = 'bounceIn animated' style = 'background-color:"+$(this).css('background-color')+"' ><span class='ui-icon ui-icon-close'>Remove Tab</span><a href='#tab-"+tabCounter+"'>"+$(this).text()+"</a> </li>");
             
             var dataType = $('#CSVTable table').data().tablesorter.parsers[$(this).parent().index()].type;
             

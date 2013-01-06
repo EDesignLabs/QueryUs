@@ -114,6 +114,7 @@ display: inline-table;
   height: 100%;
   display:block;
   padding: 0;
+  margin: 0;
 
 }
 .breadcrumb{
@@ -304,7 +305,7 @@ margin: 0;
 }
 
 .tablesorter-filter-row{
-
+  display: none;
 }
 
 
