@@ -28,6 +28,7 @@ display: inline-table;
 
   width: 960px;
   margin: auto;
+  position: relative;
 }
 
 .screen{
@@ -257,6 +258,24 @@ margin: 0;
   padding: 0;
 }
 
+.explainer{
+  font-size: 30px;
+  position: absolute;
+  top:0;
+  left:0;
+  display: none;
+  vertical-align: middle;
+}
+
+.explainer img{
+  margin: 5px;
+}
+
+.explainer button{
+
+  font-size: 12px;
+}
+
 .ui-tabs-vertical .ui-tabs-nav { 
   float: left; 
   width: 15%; 
@@ -301,7 +320,7 @@ margin: 0;
   font-size: 12px;
   padding: 10px 0;
   margin: 0;
-  text-align: center;
+  text-align: left;
 }
 
 .tablesorter-filter-row{

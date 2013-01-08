@@ -1,17 +1,48 @@
 $(function(){
 
-  var csvDataUrl = "php/ba-simple-proxy.php?url=" + getURLParameter('data') + "&mode=native";
-  $('.lead.main').text(getURLParameter('description') + getURLParameter('question') );
-  $('.lead.sub span').text(getURLParameter('question') );
+  var start = false;
+  var question = (getURLParameter('question')) ? getURLParameter('question') : "THIS IS A TEST";
+  var description = (getURLParameter('description')) ? getURLParameter('description') : "Description";
+  var dataURL = (getURLParameter('data')) ? "php/ba-simple-proxy.php?mode=native&url=" + getURLParameter('data') : "test.csv";
+
+  if (getURLParameter('start')){
+    start = true;
+    question = "Are you ready?";
+    description = "Welcome to QueryUs.";
+    dataURL = "test.csv";
+  }
+
+
+  $('.lead.main').text(description + question);
+  $('.lead.sub span').text(question);
 
   //GO SCREEN
   $('.screen').first().show();
   $('.screen').first().find(".lead").css("margin-top", $(window).height()/2 - 100+ "px");
 
 
+  var clicks = 0;
   $('.go button').click(function(){
-    $('.screen').first().slideUp();
-    $('.screen').last().slideDown();
+    clicks++
+    if (start == false || clicks == 2){
+
+      $('.screen').first().slideUp();
+      $('.screen').last().slideDown();
+
+      if (start){
+        $(".explainer").first().show();
+        $("button.publish").hide();
+        $("#table").css('opacity',".3")
+        $("#breadcrumbs").css('opacity',".3")
+      }
+
+
+    }else{
+
+      $('.lead.main').text("This explains questions");
+      $(this).text("Ready");
+      $('.lead.sub span').text("What are apples?");
+    }
   });
 
 
@@ -35,7 +66,7 @@ $(function(){
 
 
 
-    $('#CSVTable').CSVToTable(csvDataUrl).bind("loadComplete",function() { 
+    $('#CSVTable').CSVToTable(dataURL).bind("loadComplete",function() { 
 
         //enable sort functionality 
         $('#CSVTable').find('TABLE')
@@ -52,6 +83,14 @@ $(function(){
 
         $( ".breadcrumb a" ).click(function() {
 
+
+            if (start){
+              $('.explainer').eq(1).fadeOut();
+              $('.explainer').eq(2).fadeIn();
+              $('#breadcrumbs').fadeTo("fast",.3);
+
+            }
+
             $(".lead").show();
             $(".explain").hide();
             
@@ -60,36 +99,26 @@ $(function(){
             
             var dataType = $('#CSVTable table').data().tablesorter.parsers[$(this).parent().index()].type;
             
-
             var $newTab = $(tmpl(dataType, {"tabCounter": tabCounter, "title": $(this).text().toLowerCase() })).data('colIndex', $(this).parent().index());
 
-            $newTab.find('input').bind('keyup mouseup change',function(){
-              $('table').trigger('search', []); 
+            $newTab.find('select').change(function() {
+              updateTable(); 
 
-              var columns = []; 
+              if (start){
+                $('.explainer').eq(3).fadeOut();
+                $('.explainer').eq(4).fadeIn();
+              }
 
-              $tabs.find('.tab').each(function(){
+            });
 
-                if ($(this).find('input').val() != ""){
-
-                  var $selected = $(this).find('option:selected');
-                  var start = $selected.data("start");
-                  var end = $selected.data("end");
-
-                  if (columns[$(this).data('colIndex')] == undefined)
-                    columns[$(this).data('colIndex')] = start + $(this).find('input').val() + end;
-                  else
-                    columns[$(this).data('colIndex')] += "|" + start + $(this).find('input').val() + end;
-                  
-                  
-                }
-
-                
-              })
-
-              $('table').trigger('search', [columns]);
-
-
+            $newTab.find('input').bind('keyup change',function(){ 
+              updateTable(); 
+              if (start){
+                $('.explainer').eq(4).fadeOut();
+                $('.explainer').eq(5).fadeIn();
+                $('#tabs').fadeTo("fast",.2);
+                $('#table').fadeTo("fast",1);
+              }
             });
 
             $tabs.find( "span.ui-icon-close" ).live( "click", function() {
@@ -111,7 +140,7 @@ $(function(){
             tabCounter++;
 
 
-            console.log();
+            
             //$('#CSV')
             
             //animation
@@ -128,7 +157,64 @@ $(function(){
     });
 
 
+  function updateTable(){
+    $('table').trigger('search', []); 
 
+    var columns = []; 
+
+    $tabs.find('.tab').each(function(){
+
+      if ($(this).find('input').val() != ""){
+
+        var $selected = $(this).find('option:selected');
+        var start = $selected.data("start");
+        var end = $selected.data("end");
+
+        if (columns[$(this).data('colIndex')] == undefined)
+          columns[$(this).data('colIndex')] = start + $(this).find('input').val() + end;
+        else
+          columns[$(this).data('colIndex')] += "|" + start + $(this).find('input').val() + end;
+      }
+
+      
+    })
+
+    $('table').trigger('search', [columns]);
+  }
+
+  $('.publish').click(function(){
+    if (start){
+      $('.screen').last().slideUp();
+      $('.screen').first().slideDown();
+      $('.lead.main').text("You are a jedi. take me home.");
+    }else{
+
+      alert("not done :(");
+    }
+  });
+
+  ///EXPLAINER STUFF
+
+  $('.explainer button').eq(0).click(function(){
+    $('.lead.sub span').fadeTo("fast",.3);
+    $(this).parent().fadeOut();
+    $('.explainer').eq(1).fadeIn();
+    $('#breadcrumbs').fadeTo("fast",1);
+  });
+
+  $('.explainer button').eq(1).click(function(){
+    $(this).parent().fadeOut();
+    $('.explainer').eq(3).fadeIn();
+    
+  });
+
+  $('.explainer button').eq(2).click(function(){
+    $(this).parent().fadeOut();
+    $('.explainer').eq(6).fadeIn();
+    $('.publish').fadeIn();
+    $('#table').fadeTo("fast",.3);
+    $('#status').fadeTo("fast",.3);
+  });
 
 
 
