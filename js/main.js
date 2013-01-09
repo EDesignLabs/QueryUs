@@ -4,6 +4,7 @@ $(function(){
   var question = (getURLParameter('question')) ? getURLParameter('question') : "THIS IS A TEST";
   var description = (getURLParameter('description')) ? getURLParameter('description') : "Description";
   var dataURL = (getURLParameter('data')) ? "php/ba-simple-proxy.php?mode=native&url=" + getURLParameter('data') : "test.csv";
+  var lastUpdateColumnIndex = -1;
 
   if (getURLParameter('start')){
     start = true;
@@ -13,7 +14,7 @@ $(function(){
   }
 
 
-  $('.lead.main').text(description + question);
+  $('.lead.main').text(description);
   $('.lead.sub span').text(question);
 
   //GO SCREEN
@@ -68,11 +69,20 @@ $(function(){
 
     $('#CSVTable').CSVToTable(dataURL).bind("loadComplete",function() { 
 
+        $("#status #rows").text("There are " + ( $("table").find("tr").not(".filtered").length - 2)+" rows left in the table.");
+
         //enable sort functionality 
         $('#CSVTable').find('TABLE')
           .tablesorter({widgets: ["zebra", "filter"]})
           .bind('filterEnd', function(){ 
-            $("#status").text("There are " +$("table").find("tr").not(".filtered").length+" rows left in the table.");
+            
+
+            $("#status #rows").text("There are " + ( $("table").find("tr").not(".filtered").length - 2)+" rows left in the table.");
+
+
+            console.log($('#CSVTable table').data().tablesorter.parsers)
+            
+
           });
 
         //add breacrumbs 
@@ -160,7 +170,8 @@ $(function(){
   function updateTable(){
     $('table').trigger('search', []); 
 
-    var columns = []; 
+    var columns = [];
+    var queryEquation = ""; 
 
     $tabs.find('.tab').each(function(){
 
@@ -174,11 +185,16 @@ $(function(){
           columns[$(this).data('colIndex')] = start + $(this).find('input').val() + end;
         else
           columns[$(this).data('colIndex')] += "|" + start + $(this).find('input').val() + end;
+
+        if (start == "")
+          start = "≈";
+
+        queryEquation+=$('.tablesorter-header-inner').eq($(this).data('colIndex')).text() + " " + start + " " + $(this).find('input').val() + end + " & ";
       }
 
-      
-    })
+    });
 
+    $("#status #query").text("Your query equation: "  + queryEquation.substring(0, queryEquation.length - 2));
     $('table').trigger('search', [columns]);
   }
 

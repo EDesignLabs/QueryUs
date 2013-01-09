@@ -316,11 +316,23 @@ margin: 0;
 #status{
   width: 85%;
   float: right;
-  color: black;
+  color: white;
   font-size: 12px;
   padding: 10px 0;
   margin: 0;
   text-align: left;
+  background: black;
+  opacity: 0.9;
+}
+
+#status #rows{
+  float: right;
+  padding-right: 10px;
+}
+
+#status #query{
+  float: left;
+  padding-left: 10px;
 }
 
 .tablesorter-filter-row{
