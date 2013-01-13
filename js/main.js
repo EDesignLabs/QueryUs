@@ -11,6 +11,7 @@ $(function(){
   var question = (getURLParameter('question')) ? getURLParameter('question') : "THIS IS A TEST";
   var description = (getURLParameter('description')) ? getURLParameter('description') : "Description";
   var dataURL = (getURLParameter('data')) ? "php/ba-simple-proxy.php?mode=native&url=" + getURLParameter('data') : "test.csv";
+  var isPublishedBtnActivated = false;
   var lastUpdateColumnIndex = -1;
 
   if (getURLParameter('start')){
@@ -85,44 +86,8 @@ $(function(){
             
 
             $("#status #rows").text("There are " + ( $("table").find("tr").not(".filtered").length - 2)+" rows left in the table.");
-
-            //generate aggrate data
-            var columns = $('#CSVTable table').data().tablesorter.parsers;
-            for (var i = 0; i < columns.length; i++) {
-                columnsType = columns[i].type;
-                
-                var data = [];
-
-
-                $('tr').not('.tablesorter-headerRow').not('.tablesorter-filter-row').not('.filtered').each(function(){
-                  if (isNaN($(this).find('td').eq(i).text()))
-                    data.push($(this).find('td').eq(i).text())
-                  else
-                    data.push(parseFloat($(this).find('td').eq(i).text()));
-                });
-
-                data.sort();
-
-                var ouput = '';
-
-                if (columnsType == "numeric"){
-                  ouput += '<li> lowest value: ' + data[data.length - 1]  + "</li>";
-                  ouput += '<li> highest value: ' +  data[0] + "</li>";
-                  ouput += '<li> mean: ' +  mean(data) + "</li>";
-                  ouput += '<li> median: ' +  median(data) + "</li>";
-                  ouput += '<li> mode: ' +  mode(data) + "</li>";
-
-                  $('.numeric.tab .panel ul').html(ouput);
-
-                }else{
-
-                  
-                  ouput += '<li> highest occurence: ' +  mode(data) + "</li>";
-
-                  $('.text.tab .panel ul').html(ouput);
-                }
-
-            }
+            generateAggregate();
+           
             
 
           });
@@ -142,6 +107,8 @@ $(function(){
               $('#breadcrumbs').fadeTo("fast",.3);
 
             }
+
+            
 
             $(".lead").show();
             $(".explain").hide();
@@ -171,6 +138,12 @@ $(function(){
                 $('#tabs').fadeTo("fast",.2);
                 $('#table').fadeTo("fast",1);
               }
+
+              if(isPublishedBtnActivated == false){
+                $('.publish').show();
+                isPublishedBtnActivated = true;
+              }
+
             });
 
             $tabs.find( "span.ui-icon-close" ).live( "click", function() {
@@ -191,7 +164,7 @@ $(function(){
 
             tabCounter++;
 
-
+            generateAggregate();
             
             //$('#CSV')
             
@@ -207,6 +180,45 @@ $(function(){
 
 
     });
+
+  function generateAggregate(){
+     //generate aggrate data
+    var columns = $('#CSVTable table').data().tablesorter.parsers;
+    for (var i = 0; i < columns.length; i++) {
+      columnsType = columns[i].type;
+      
+      var data = [];
+
+
+      $('tr').not('.tablesorter-headerRow').not('.tablesorter-filter-row').not('.filtered').each(function(){
+        if (isNaN($(this).find('td').eq(i).text()))
+          data.push($(this).find('td').eq(i).text())
+        else
+          data.push(parseFloat($(this).find('td').eq(i).text()));
+      });
+
+      data.sort();
+
+      var ouput = '';
+
+      if (columnsType == "numeric"){
+        ouput += '<li> <p>lowest value:</p><p> ' + data[data.length - 1]  + "</p></li>";
+        ouput += '<li> <p>highest value:</p><p> ' +  data[0] + "</p></li>";
+        ouput += '<li> <p>mean:</p><p> ' +  mean(data) + "</p></li>";
+        ouput += '<li> <p>median:</p><p> ' +  median(data) + "</p></li>";
+        ouput += '<li> <p>mode:</p><p> ' +  mode(data) + "</p></li>";
+
+        $('.numeric.tab .panel ul').html(ouput);
+
+      }else{
+
+        
+        ouput += '<li> <p>highest occurence:</p><p> ' +  mode(data) + "</p></li>";
+
+        $('.text.tab .panel ul').html(ouput);
+      }
+    }
+  }
 
 
   function updateTable(){

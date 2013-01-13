@@ -10,13 +10,14 @@
 
   <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/animate.min.css">
-  <link href='http://fonts.googleapis.com/css?family=Fredoka+One' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,900italic' rel='stylesheet' type='text/css'>
 
   <!-- mini templates -->
   <script type="text/html" id="text">
     <div class = "text tab" id="tab-<%=tabCounter%>">
       
       <div class = "panel">
+        <h3>Column Data</h3>
         <ul>
         </ul>
       </div>
@@ -40,6 +41,7 @@
     <div class = "numeric tab" id="tab-<%=tabCounter%>">
       
       <div class = "panel">
+        <h3>Column Data</h3>
         <ul></ul>
       </div>
       <div class = "selector">
@@ -68,14 +70,14 @@
       </div>
 
       <p class = "go">
-        <button class="btn btn-large btn-primary" type="button">Lets Go!</button>
+        <button class="btn" type="button">Lets Go!</button>
       </p>
     </div>
 
     <div class = "screen">
 
       <div class="masthead">
-        <p class = "lead sub"><span> What do you think makes the best subway line?</span><button class="btn btn-large btn-primary publish" type="button">PUBLISH</button> </p>
+        <p class = "lead sub"><span> What do you think makes the best subway line?</span><button style = "display:none;" class="btn btn-small publish" type="button">PUBLISH</button> </p>
       </div>
 
       <div id = "tabulator">
