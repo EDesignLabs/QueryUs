@@ -18,17 +18,14 @@
       
       <div class = "panel">
         <ul>
-          <li> average: 7 </li>
-          <li> median: 6 </li>
-          <li> smallest number: 3 </li>
-          <li> largest number: 14 </li>
         </ul>
       </div>
       <div class = "selector">
         <h4>select all the rows that have a</h4> 
-        <p><strong><%=title%></strong> that:
+        <p>
+        <span><strong><%=title%></strong> that </span>
         <select>
-          <option data-start = "" data-end = "" >are like</option>
+          <option data-start = "" data-end = "" >contains the letters</option>
           <option data-start = "=" data-end = "">are exactly</option>
           <option data-start = "!" data-end = "">does not contain</option>
           <option data-start = "<>" data-end = "">are not</option>
@@ -40,19 +37,15 @@
   </script>
 
   <script type="text/html" id="numeric">
-    <div class = "text tab" id="tab-<%=tabCounter%>">
+    <div class = "numeric tab" id="tab-<%=tabCounter%>">
       
       <div class = "panel">
-        <ul>
-          <li> test </li>
-          <li> test </li>
-          <li> test </li>
-          <li> test </li>
-        </ul>
+        <ul></ul>
       </div>
       <div class = "selector">
         <h4>select all the rows that have</h4> 
-        <p>a <strong><%=title%></strong> that are 
+        <p>
+          <span>a <strong><%=title%></strong> that is </span>
           <select>
             <option data-start = ">" data-end = "" data-start = ">">greater than</option>
             <option data-start = "<" data-end = "">less than</option>
@@ -111,6 +104,19 @@
       <div class = "explainer" style=" top: 170px; left:225px;  " ><br><img src="imgs/arrow-down.png" style=" position: relative; top: 125px; left: 310px;">Type 5 in here....</div>
       <div class = "explainer" style=" top: 286px; left: -40px; "><br><img src="imgs/arrow-double.png" style=" position: relative; top: -40px; left: 310px;">WOAH STUFF CHANGED. <button class="btn  btn-primary" type="button">OK I GOT IT...</button></div>
       <div class="explainer" style="top: 59px; left: 320px;"><br><img src="imgs/arrow-up-right.png" style=" position: relative; top: -40px; left: 310px;">The publish button. go ahead click it</div>
+    </div>
+
+    <div class = "publishfinal">
+      <div class="masthead">
+        <p class="lead sub"><span>question</span> </p>
+      </div>
+      <div class = "parameters">
+      </div>
+
+      <div class = "tablefinal">
+
+      </div>
+    </div>
   </div> <!-- /container -->
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>

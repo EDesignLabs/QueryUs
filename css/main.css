@@ -339,8 +339,22 @@ margin: 0;
   display: none;
 }
 
+.publishfinal{
+  display: none;
+}
 
+.publishfinal .lead{
+  text-align: center;
+}
 
+.publishfinal .parameters{
+  font-size: 24px;
+}
+
+.publishfinal .btn{
+
+  float:right;
+}
 /* tables */
 table.CSVTable {
   font-family:arial;

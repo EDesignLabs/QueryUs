@@ -1,5 +1,12 @@
 $(function(){
 
+  //Todos
+  //delete all tabs should reset query
+  //up & down arrow
+  //time datatype
+  //always on top header
+
+
   var start = false;
   var question = (getURLParameter('question')) ? getURLParameter('question') : "THIS IS A TEST";
   var description = (getURLParameter('description')) ? getURLParameter('description') : "Description";
@@ -79,8 +86,43 @@ $(function(){
 
             $("#status #rows").text("There are " + ( $("table").find("tr").not(".filtered").length - 2)+" rows left in the table.");
 
+            //generate aggrate data
+            var columns = $('#CSVTable table').data().tablesorter.parsers;
+            for (var i = 0; i < columns.length; i++) {
+                columnsType = columns[i].type;
+                
+                var data = [];
 
-            console.log($('#CSVTable table').data().tablesorter.parsers)
+
+                $('tr').not('.tablesorter-headerRow').not('.tablesorter-filter-row').not('.filtered').each(function(){
+                  if (isNaN($(this).find('td').eq(i).text()))
+                    data.push($(this).find('td').eq(i).text())
+                  else
+                    data.push(parseFloat($(this).find('td').eq(i).text()));
+                });
+
+                data.sort();
+
+                var ouput = '';
+
+                if (columnsType == "numeric"){
+                  ouput += '<li> lowest value: ' + data[data.length - 1]  + "</li>";
+                  ouput += '<li> highest value: ' +  data[0] + "</li>";
+                  ouput += '<li> mean: ' +  mean(data) + "</li>";
+                  ouput += '<li> median: ' +  median(data) + "</li>";
+                  ouput += '<li> mode: ' +  mode(data) + "</li>";
+
+                  $('.numeric.tab .panel ul').html(ouput);
+
+                }else{
+
+                  
+                  ouput += '<li> highest occurence: ' +  mode(data) + "</li>";
+
+                  $('.text.tab .panel ul').html(ouput);
+                }
+
+            }
             
 
           });
@@ -205,7 +247,22 @@ $(function(){
       $('.lead.main').text("You are a jedi. take me home.");
     }else{
 
-      alert("not done :(");
+      $('.screen').hide();
+      $('.publishfinal').show();
+
+      var output = "";
+      $('.tab .selector p').each(function(){
+        output += "<p>I want " + ($(this).find('span').text() + "<strong>" + $(this).find("option:selected").text() + " " + $(this).find('input').val() + " </strong>.<p>" );
+      });
+
+
+
+      $('.publishfinal .parameters').html(output)
+
+      $('table').clone().appendTo('.publishfinal .tablefinal');
+
+       $('.publishfinal').append('<p>I think this because: <textarea></textarea><button class="btn btn-large btn-primary publish" type="button">SAVE & SHARE</button> ')
+
     }
   });
 
@@ -277,4 +334,55 @@ $(function(){
 //http://stackoverflow.com/questions/1403888/get-url-parameter-with-jquery
 function getURLParameter(name) {
     return decodeURIComponent((new RegExp('[?|&]' + name + '=' + '([^&;]+?)(&|#|;|$)').exec(location.search)||[,""])[1].replace(/\+/g, '%20'))||null;
+}
+
+//some random number functions, not written by me. 
+function mean(numbers) {
+    // mean of [3, 5, 4, 4, 1, 1, 2, 3] is 2.875
+    var total = 0,
+        i;
+    for (i = 0; i < numbers.length; i += 1) {
+        total += numbers[i];
+    }
+    return total / numbers.length;
+}
+function median(numbers) {
+    // median of [3, 5, 4, 4, 1, 1, 2, 3] = 3
+    var median = 0,
+        numsLen = numbers.length;
+    numbers.sort();
+    if (numsLen % 2 === 0) { // is even
+        // average of two middle numbers
+        median = (numbers[numsLen / 2 - 1] + numbers[numsLen / 2]) / 2;
+    } else { // is odd
+        // middle number only
+        median = numbers[(numsLen - 1) / 2];
+    }
+    return median;
+}
+function mode(array)
+{
+    if(array.length == 0)
+      return null;
+    var modeMap = {};
+    var maxEl = array[0], maxCount = 1;
+    for(var i = 0; i < array.length; i++)
+    {
+      var el = array[i];
+      if(modeMap[el] == null)
+        modeMap[el] = 1;
+      else
+        modeMap[el]++;  
+      if(modeMap[el] > maxCount)
+      {
+        maxEl = el;
+        maxCount = modeMap[el];
+      }
+    }
+    return maxEl;
+}
+function range(numbers) {
+    // range of [3, 5, 4, 4, 1, 1, 2, 3] is [1, 5]
+    numbers.sort();
+    return [numbers[0], numbers[numbers.length - 1]];
 }
