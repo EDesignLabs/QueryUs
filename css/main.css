@@ -347,9 +347,18 @@ margin: 0;
   text-align: center;
 }
 
-.publishfinal .parameters{
+.publishfinal p{
   font-size: 24px;
 }
+
+.publishfinal textarea{
+  width: 732px;
+  height: 121px;
+}
+
+.publishfinal .saveshare{
+  margin: 30px 0;
+ }
 
 .publishfinal .btn{
 

@@ -261,7 +261,7 @@ $(function(){
 
       $('table').clone().appendTo('.publishfinal .tablefinal');
 
-       $('.publishfinal').append('<p>I think this because: <textarea></textarea><button class="btn btn-large btn-primary publish" type="button">SAVE & SHARE</button> ')
+       $('.publishfinal').append('<p>I think this because: <textarea></textarea><button class="btn btn-large btn-primary saveshare" type="button">SAVE & SHARE</button> ')
 
     }
   });
