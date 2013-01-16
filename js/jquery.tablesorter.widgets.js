@@ -409,6 +409,20 @@ $.tablesorter.addWidget({
 									// Look for quotes or equals to get an exact match
 									} else if (reg[3].test(val) && xi === val.replace(reg[4], '')){
 										ff = true;
+
+									//look for or statemnt and numbers
+									} else if (/\|/.test(val) && /^[<>]=?/.test(val)){
+										var operations = val.split('|');
+										for (var q = 0; q < operations.length; q++) {
+										    val = operations[q];
+											rg = isNaN(xi) ? $.tablesorter.formatFloat(xi.replace(reg[5], ''), table) : $.tablesorter.formatFloat(xi, table);
+											s = $.tablesorter.formatFloat(val.replace(reg[5], '').replace(reg[6],''), table);
+											if (/>/.test(val)) { ff = />=/.test(val) ? rg >= s : rg > s; }
+											if (/</.test(val)) { ff = /<=/.test(val) ? rg <= s : rg < s; }
+
+										    if (ff == false)
+										    	break;
+										}
 									// Look for a not match
 									} else if (/^\!/.test(val)){
 										val = val.replace('!','');
