@@ -389,7 +389,7 @@ margin: 0;
 }
 
 .tablesorter-filter-row{
-  /*display: none;*/
+  display: none;
 }
 
 .publishfinal{
@@ -428,6 +428,7 @@ margin: 0;
   display: block;
   border-radius: 10px;
   float:left;
+  max-width: 64px;
 }
 
 .picker span{
