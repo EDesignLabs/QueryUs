@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="css/normalize.css">
 
   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/main.css">
   <link rel="stylesheet" href="css/animate.min.css">
   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,900italic' rel='stylesheet' type='text/css'>
 
@@ -28,17 +29,19 @@
 			  <input name="question" id="question-input" type="text" placeholder="What is the best [...]?" /><br>
 			  <label for="description" id="description-label">Description</label><br>
 			  <textarea name="description" id="description-input" placeholder="Tell the world a little bit about your dataset." /></textarea><br>
-			  <input name="submit" type="button" class="btn" value="Create Dataset">
+			  <input name="submit" id="dataset-submit" type="button" class="btn" value="Create Dataset">
 		  </form>
 		</div>
-		<div>
-			<input type="text" disabled id="encoded-link" class="hidden"></textarea><br>
+		<div id="dataset-result">
+		  <div id="dataset-error"></div>
+			<div id="dataset-link"></div>
 		</div>
 	  </div>
   </div> <!-- /container -->
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
   <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+  <script src="js/link_creator.js"></script>
 
 
 </body>
