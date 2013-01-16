@@ -17,7 +17,7 @@ $(function(){
 		                     + "&description=" + description.val()
 		;
     
-    if (isCSVLocationValid) {
+   
       $('#dataset-link').html("")
       $('#dataset-error').html("")
       $('<a>', {
@@ -25,10 +25,7 @@ $(function(){
         title: question.val(),
         href: encodeURI(concatenatedLink)
       }).appendTo('#dataset-link');
-    } else {
-      $('#dataset-error').html("Your CSV Location must point to a CSV file on the web.")
-      return;
-    }	
+    	
 	}
 
 });
