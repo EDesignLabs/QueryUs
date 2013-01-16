@@ -389,7 +389,7 @@ margin: 0;
 }
 
 .tablesorter-filter-row{
-  display: none;
+  /*display: none;*/
 }
 
 .publishfinal{
@@ -417,6 +417,34 @@ margin: 0;
 
   float:right;
 }
+
+
+.picker .icon{
+  display: inline-block;
+  border-radius: 9px;
+  float:left;
+}
+.picker img{
+  display: block;
+  border-radius: 10px;
+  float:left;
+}
+
+.picker span{
+  float:left;
+  padding-left: 20px;
+}
+
+.picker h1{
+  margin: 0;
+}
+
+.picker .item{
+  clear: both;
+  display: table;
+  margin-top: 25px;
+}
+
 /* tables */
 table.CSVTable {
 
