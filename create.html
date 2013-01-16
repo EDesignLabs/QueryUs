@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="utf-8">
+
+  <title>QueryUs</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width">
+
+  <link rel="stylesheet" href="css/normalize.css">
+
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/animate.min.css">
+  <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700,900italic' rel='stylesheet' type='text/css'>
+
+ 
+</head>
+<body>
+  <div class="container">
+	  <div class="masthead">
+		<p class="lead main">It's easy to create a lesson with QueryUs. Simply fill out the fields on the left to generate a QueryUs link with your own custom data.</p>
+	  </div>
+	  <div class="row" id="dataset-creator">
+	  	<div id="user-entry">
+		  <form name="URICreator" id="user-input-form">
+			  <label for="dataset" id="dataset-label">CSV Location</label><br>
+			  <input name="dataset" id="dataset-input" type="text" placeholder="http://[...].csv" required pattern="https*.+\.csv$" /><br>
+			  <label for="question" id="question-label">Question</label><br>
+			  <input name="question" id="question-input" type="text" placeholder="What is the best [...]?" /><br>
+			  <label for="description" id="description-label">Description</label><br>
+			  <textarea name="description" id="description-input" placeholder="Tell the world a little bit about your dataset." /></textarea><br>
+			  <input name="submit" id="dataset-submit" type="button" class="btn" value="Create Dataset">
+		  </form>
+		</div>
+		<div id="dataset-result">
+		  <div id="dataset-error"></div>
+			<div id="dataset-link"></div>
+		</div>
+	  </div>
+  </div> <!-- /container -->
+
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+  <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+  <script src="js/link_creator.js"></script>
+
+
+</body>
+</html>
+

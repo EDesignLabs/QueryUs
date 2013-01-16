@@ -1,0 +1,24 @@
+#dataset-creator {
+  padding: 1em 8em 1em 8em;
+}
+
+#dataset-creator form {
+  
+}
+
+#user-entry {
+  float: left;
+}
+
+#user-entry form label {
+  font-weight: bold;
+  margin-top: 1em;
+}
+
+#user-entry form input, #dataset-creator form textarea {
+ margin: .5em 0 1.5em 0; 
+}
+
+#dataset-result {
+  padding-left: 2em;
+}
