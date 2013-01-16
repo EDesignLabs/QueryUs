@@ -25,13 +25,14 @@
 			  <label for="dataset" id="dataset-label">CSV Location</label><br>
 			  <input name="dataset" id="dataset-input" type="text" placeholder="http://[...].csv" required pattern="https*.+\.csv$" /><br>
 			  <label for="question" id="question-label">Question</label><br>
-			  <input name="question" id="question-input" type="text" /><br>
+			  <input name="question" id="question-input" type="text" placeholder="What is the best [...]?" /><br>
 			  <label for="description" id="description-label">Description</label><br>
-			  <textarea name="description" id="description-input" /></textarea>
+			  <textarea name="description" id="description-input" placeholder="Tell the world a little bit about your dataset." /></textarea><br>
+			  <input name="submit" type="button" class="btn" value="Create Dataset">
 		  </form>
 		</div>
 		<div>
-			<input type="text" disabled id="encoded-link"></textarea><br>
+			<input type="text" disabled id="encoded-link" class="hidden"></textarea><br>
 		</div>
 	  </div>
   </div> <!-- /container -->
