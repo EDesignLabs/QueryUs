@@ -111,7 +111,7 @@ $(function(){
             
             var dataType = $('#CSVTable table').data().tablesorter.parsers[$(this).parent().index()].type;
             
-            var $newTab = $(tmpl(dataType, {"tabCounter": tabCounter, "title": $(this).text().toLowerCase() })).data('colIndex', $(this).parent().index());
+            var $newTab = $(tmpl(dataType, {"tabCounter": tabCounter, "title": $(this).text().toLowerCase(),"column": $(this).parent().index() })).data('colIndex', $(this).parent().index());
 
             $newTab.find('select').change(function() {
               updateTable(); 
@@ -201,14 +201,14 @@ $(function(){
         ouput += '<li> <p>median:</p><p> ' +  median(data) + "</p></li>";
         ouput += '<li> <p>mode:</p><p> ' +  mode(data) + "</p></li>";
 
-        $('.numeric.tab .panel ul').html(ouput);
+        $('.column'+i+'.tab .panel ul').html(ouput);
 
       }else{
 
         
         ouput += '<li> <p>highest occurence:</p><p> ' +  mode(data) + "</p></li>";
 
-        $('.text.tab .panel ul').html(ouput);
+       $('.column'+i+'.tab .panel ul').html(ouput);
       }
     }
   }
@@ -231,7 +231,7 @@ $(function(){
         if (columns[$(this).data('colIndex')] == undefined)
           columns[$(this).data('colIndex')] = start + $(this).find('input').val() + end;
         else
-          columns[$(this).data('colIndex')] += "|" + start + $(this).find('input').val() + end;
+          columns[$(this).data('colIndex')] = $(this).data('colIndex') + "|" + start + $(this).find('input').val() + end;
 
         if (start == "")
           start = "≈";
