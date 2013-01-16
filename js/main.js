@@ -1,12 +1,5 @@
 $(function(){
 
-  //Todos
-  //delete all tabs should reset query
-  //up & down arrow
-  //time datatype
-  //always on top header
-
-
   var start = false;
   var question = (getURLParameter('question')) ? getURLParameter('question') : "THIS IS A TEST";
   var description = (getURLParameter('description')) ? getURLParameter('description') : "Description";
