@@ -69,7 +69,18 @@ $(function(){
 
 
     $('#CSVTable').CSVToTable(dataURL).bind("loadComplete",function() { 
-
+/* keeeping this hear as a starting point for stick headers
+        //sticky headers
+        setTimeout(function(){
+          $('.tablesorter-header').each(function(){
+            $(this).css('width',$(this).width() + 'px');
+            setTimeout(function(){
+              $('thead').first().css('position','absolute');
+              //$('.tablesorter-filter-row').show();
+            }, 1000);
+          });
+        }, 1000);
+*/
         $("#status #rows").text("There are " + ( $("table").find("tr").not(".filtered").length - 2)+" rows left in the table.");
 
         //enable sort functionality 
