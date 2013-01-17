@@ -48,7 +48,7 @@ $(function(){
 
       $('.lead.main').text("Commercial search engines like Google, Bing, and Yahoo use functions and algorithms that give you results when you type in questions. This is useful, but sometimes the results aren’t what you wanted or are skewed towards companies that pay these search engines to display their results first! Let’s change this with QueryUs!  Are you ready to fight the power!");
       $(this).text("Start!");
-      $('.lead.sub span').text("Are you likely are you to get eaten by a hippo?");
+      $('.lead.sub span').text("How likely are you to get eaten by a hippo?");
     }
   });
 
