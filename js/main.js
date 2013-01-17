@@ -10,23 +10,27 @@ $(function(){
   if (getURLParameter('start')){
     start = true;
     question = "Are you ready?";
-    description = "Welcome to QueryUs.";
+    description = "<h1>Welcome to QueryUs.</h1><p> Data is everywhere! QueryUS helps us make sense of this data and the relationships it has to other forms of information. By building queries, which are like mini search routines, you’ll be able to sift through data to arrive at answers we can then share with the world.</p>";
     dataURL = "test.csv";
   }
 
 
-  $('.lead.main').text(description);
+  $('.lead.main').html(description);
   $('.lead.sub span').text(question);
 
   //GO SCREEN
   $('.screen').first().show();
-  $('.screen').first().find(".lead").css("margin-top", $(window).height()/2 - 100+ "px");
+  $('.screen').first().find(".lead").css("margin-top", $(window).height()/5+ "px");
 
 
   var clicks = 0;
   $('.go button').click(function(){
     clicks++
-    if (start == false || clicks == 2){
+
+    if (clicks == 3){
+      window.location = "http://queryus.pagodabox.com/pick.html"
+
+    }else if (start == false || clicks == 2){
 
       $('.screen').first().slideUp();
       $('.screen').last().slideDown();
@@ -35,15 +39,16 @@ $(function(){
         $(".explainer").first().show();
         $("button.publish").hide();
         $("#table").css('opacity',".3")
-        $("#breadcrumbs").css('opacity',".3")
+        $("#breadcrumbs").css('opacity',".status")
+        $("#3").css('opacity',".3")
       }
 
 
     }else{
 
-      $('.lead.main').text("This explains questions");
-      $(this).text("Ready");
-      $('.lead.sub span').text("What are apples?");
+      $('.lead.main').text("Commercial search engines like Google, Bing, and Yahoo use functions and algorithms that give you results when you type in questions. This is useful, but sometimes the results aren’t what you wanted or are skewed towards companies that pay these search engines to display their results first! Let’s change this with QueryUs!  Are you ready to fight the power!");
+      $(this).text("Start!");
+      $('.lead.sub span').text("Are you likely are you to get eaten by a hippo?");
     }
   });
 
@@ -260,7 +265,8 @@ $(function(){
     if (start){
       $('.screen').last().slideUp();
       $('.screen').first().slideDown();
-      $('.lead.main').text("You are a jedi. take me home.");
+      $('.lead.main').text("You are a jedi. Now others can see the query you built and published.");
+      $('.go button').text("Take me to the questions...")
     }else{
 
       $('.screen').hide();

@@ -1,21 +1,7 @@
-album,artist,price
-"lateralus","tool",13.00
-"aenima","tool",12.00
-"10,000 days","tool",14.00
-"down in it","nine inch nails",3.00
-"broken","nine inch nails",6.00
-"lateralus","tool",13.00
-"aenima","tool",12.00
-"10,000 days","tool",14.00
-"down in it","nine inch nails",3.00
-"broken","nine inch nails",6.00
-"lateralus","tool",13.00
-"aenima","tool",12.00
-"10,000 days","tool",14.00
-"down in it","nine inch nails",3.00
-"broken","nine inch nails",6.00
-"lateralus","tool",13.00
-"aenima","tool",12.00
-"10,000 days","tool",14.00
-"down in it","nine inch nails",3.00
-"broken","nine inch nails",6.00
+Cities,Hippo Attacks,Number of Hippos,City Popoulation
+"Philadelpia, USA",2,6,1536471
+"New York, USA",2,3,8244910
+"Beijing, CHINA",1,1,20180000
+"Chigago, USA",1,4,1536471
+"Redding, USA",2,3,8244910
+"Mexico City, Mexico",1,1,20180000

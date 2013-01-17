@@ -251,13 +251,13 @@ margin: 0;
 }
 
 #tabs .selector{
-  float: left;
-  width: 59%;
-  color: white;
-  text-align: center;
-  padding: 20px;
-  line-height: 21px;
-  text-align: left;
+float: left;
+width: 70%;
+color: white;
+text-align: center;
+padding: 12px;
+line-height: 21px;
+text-align: left;
 }
 
 .tab p{
