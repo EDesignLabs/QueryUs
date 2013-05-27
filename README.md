@@ -1,6 +1,6 @@
 QueryUs
 =======
-QueryUs allows can take big data sets and allow anyone to filter them empowering anyone with raw data to construct arguments.
+QueryUs can filter big data sets empowering anyone with raw data to construct arguments.
 
 Installation
 =======
